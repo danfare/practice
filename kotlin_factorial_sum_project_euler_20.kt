@@ -1,5 +1,5 @@
 fun main() {
-  val number = 50
+  val number = 10
   try {
     val factorial = getFactorial(number)
     val sumEach = sumEach(factorial)
@@ -15,8 +15,8 @@ fun sumEach(number: Int): Int =
   number
   .toString()
   .chunked(1)
-  .reduce { sum, element -> "${sum.toInt() + element.toInt()}" }
-  .toInt()
+  .map { it.toInt() }
+  .reduce { sum, element -> sum + element }
 
 
 fun getFactorial(number: Int): Int {
